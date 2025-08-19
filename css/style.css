@@ -13,32 +13,36 @@ section{padding:72px 24px}
 .content p{font-size:18px}
 .muted{color:var(--muted)}
 
-/* HERO */
+/* HERO – image darkened by gradient, no box */
 .hero{
-  min-height:80vh; display:flex; align-items:center; justify-content:center; text-align:center;
-  background-size:cover; background-position:center; position:relative;
+  position:relative; min-height:80vh; display:flex; align-items:center; justify-content:center;
+  background:center/cover no-repeat; padding:72px 24px; text-align:center;
 }
-.hero .overlay{
-  background:rgba(0,0,0,.55); padding:40px 20px; border-radius:12px; max-width:820px;
+.hero .overlay{ background:none; padding:0; max-width:820px; }
+.hero::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.25) 40%, rgba(0,0,0,.55));
 }
-.title{font-size:clamp(32px,6vw,64px);margin-bottom:12px}
-.subtitle{font-size:18px;color:var(--muted)}
+.title{font-size:clamp(32px,6vw,64px);margin-bottom:12px;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.subtitle{font-size:18px;color:var(--muted);text-shadow:0 1px 10px rgba(0,0,0,.35)}
 
 /* ABOUT */
 .about{background:var(--bg-soft)}
 
-/* LESSONS (immersive background) */
+/* LESSONS – image darkened by gradient, no box */
 .lessons{
-  background-size:cover; background-position:center; position:relative; color:var(--text);
-  min-height:70vh; display:flex; align-items:center; justify-content:center; padding:0;
+  position:relative; min-height:70vh; display:flex; align-items:center; justify-content:center;
+  background:center/cover no-repeat; padding:0;
 }
-.lessons .overlay{
-  background:rgba(0,0,0,.6); width:100%; height:100%;
-  display:flex; align-items:center; justify-content:center; padding:72px 24px;
+.lessons .overlay{ background:none; padding:72px 24px; width:100%; display:flex; justify-content:center; }
+.lessons::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.35) 50%, rgba(0,0,0,.6));
 }
 .lesson-list{
   list-style:none; padding:0; margin-top:20px; font-size:22px; display:flex; flex-direction:column; gap:12px; font-weight:600;
 }
+.lesson-list li{ text-shadow:0 1px 10px rgba(0,0,0,.35) }
 
 /* CONTACT */
 .contact-form{margin-top:20px;display:grid;gap:12px}
