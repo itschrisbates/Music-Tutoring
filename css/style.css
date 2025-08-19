@@ -14,10 +14,10 @@ body {
   height: 80vh;
 }
 .hero {
-  background-image: url("Performing2.webp"); /* swap filename if needed */
+  background-image: url("img/hero.webp"); /* swap filename if needed */
 }
 .lessons {
-  background-image: url("77-IMG_0726.webp"); /* swap filename if needed */
+  background-image: url("img/performing.webp"); /* swap filename if needed */
 }
 
 /* Text Bars */
