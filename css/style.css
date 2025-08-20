@@ -34,7 +34,7 @@ a:hover{text-decoration:underline}
   border-bottom:1px solid var(--divider);
 }
 
-/* Hero & image break */
+/* Hero & image breaks */
 .hero{
   height:90vh;
   background:url("../img/hero.webp") center center / cover no-repeat;
@@ -42,6 +42,10 @@ a:hover{text-decoration:underline}
 .image-break{
   height:70vh;
   background:url("../img/performing.webp") center center / cover no-repeat;
+}
+/* New green full-bleed image after Bio */
+.image-break.green{
+  background:url("../img/green.webp") center center / cover no-repeat;
 }
 
 /* Content sections */
@@ -72,9 +76,39 @@ button{
 }
 button:hover{background:var(--brand-d)}
 
+/* Teaching Info: interactive cards */
+.teaching-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:24px;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--divider);
+  border-radius:14px;
+  padding:20px;
+  text-align:left;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  cursor:default;
+  outline:none;
+}
+.card h3{margin:0 0 10px;font-size:1.2rem}
+.card p{margin:0;color:var(--muted)}
+.card:hover,
+.card:focus{
+  transform:translateY(-6px);
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+  border-color:#d1d5db;
+}
+
 /* Responsive tweak */
+@media (max-width:960px){
+  .teaching-grid{grid-template-columns:1fr 1fr}
+}
 @media (max-width:720px){
   .section-content{padding:64px 18px}
   .hero{height:70vh}
   .image-break{height:50vh}
+  .teaching-grid{grid-template-columns:1fr}
 }
