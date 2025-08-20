@@ -46,14 +46,14 @@ a:hover{text-decoration:underline}
 }
 .top-banner h1{margin:0; line-height:1.05}
 
-/* Hero & image break */
+/* Hero & image break (restore tall look) */
 .hero{
-  min-height:48vh; max-height:560px;
+  height:90vh;  /* fills most of screen again */
   background:url("../img/hero.webp") center center / cover no-repeat;
   margin-block:var(--gap);
 }
 .image-break{
-  min-height:32vh; max-height:420px;
+  height:70vh;
   background:url("../img/performing.webp") center center / cover no-repeat;
   margin-block:var(--gap);
 }
