@@ -15,7 +15,7 @@
 
 body {
   font-family: system-ui, sans-serif;
-  background: var(--bg) url("img/meandjono.webp") no-repeat center center fixed;
+  background: var(--bg) url("../img/meandjono.webp") no-repeat center center fixed;
   background-size: cover;
   color: var(--fg);
   line-height: 1.6;
