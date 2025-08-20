@@ -39,11 +39,11 @@ a{color:var(--brand);text-decoration:none}
 a:hover{text-decoration:underline}
 
 /* Top banner */
-.top-banner{
-  background:transparent;             /* let bg show through */
-  text-align:center;
-  padding:40px 16px 30px;
-  border-bottom:1px solid var(--divider);
+.top-banner {
+  background: transparent;   /* remove black box */
+  border: none;              /* remove divider line */
+  text-align: center;
+  padding: 80px 16px 40px;   /* a little more vertical spacing */
 }
 
 /* Hero & image break */
