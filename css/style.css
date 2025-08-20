@@ -1,11 +1,11 @@
 :root{
-  --text:#1f2937;
-  --muted:#6b7280;
-  --brand:#0a75cf;
-  --brand-d:#075aa0;
+  --text:#f3f4f6;        /* light text */
+  --muted:#d1d5db;       /* paragraph gray */
+  --brand:#60a5fa;       /* accent */
+  --brand-d:#3b82f6;     /* accent hover */
   --content-w: 800px;
-  --section-bg:#fafafa;
-  --divider:#e5e7eb;
+  --section-bg:#111827;  /* page base (seen behind panels) */
+  --divider:#374151;     /* subtle borders */
 }
 
 *{box-sizing:border-box}
@@ -17,14 +17,14 @@ body{
   color:var(--text);
   line-height:1.6;
 
-  /* fixed, subtle background image */
-  background: url("../img/meandjono.webp") center center / cover no-repeat fixed;
+  /* fixed image stays put while scrolling */
+  background:url("../img/meandjono.webp") center center / cover no-repeat fixed;
 }
-/* light wash to keep content readable */
+/* dark wash over photo so content stays readable */
 body::before{
   content:"";
   position:fixed; inset:0;
-  background:rgba(250,250,250,0.78); /* adjust 0.65–0.85 to taste */
+  background:rgba(0,0,0,0.72); /* tweak 0.6–0.85 to taste */
   pointer-events:none;
   z-index:-1;
 }
@@ -32,7 +32,7 @@ body::before{
 /* Headings */
 h1,h2{line-height:1.2;margin:0 0 12px}
 h1{font-weight:800;font-size:clamp(28px,4vw,44px);color:var(--text)}
-h2{font-weight:800;font-size:clamp(22px,3vw,32px)}
+h2{font-weight:800;font-size:clamp(22px,3vw,32px);color:var(--text)}
 
 /* Links */
 a{color:var(--brand);text-decoration:none}
@@ -40,11 +40,10 @@ a:hover{text-decoration:underline}
 
 /* Top banner */
 .top-banner{
-  background:transparent;            /* show bg through */
+  background:transparent;             /* let bg show through */
   text-align:center;
   padding:40px 16px 30px;
   border-bottom:1px solid var(--divider);
-  backdrop-filter:saturate(110%) blur(0px);
 }
 
 /* Hero & image break */
@@ -63,16 +62,15 @@ a:hover{text-decoration:underline}
   max-width:var(--content-w);
   margin:0 auto;
   text-align:center;
-  backdrop-filter: blur(0px);        /* keeps text crisp if overlay is light */
 }
 .section-content p{color:var(--muted);font-size:1.05rem}
 
-/* Accordion */
+/* Accordion (Teaching Info) */
 .accordion{margin-top:10px; text-align:left}
 .acc-item{
+  background:#1f2937;                 /* dark panel */
   border:1px solid var(--divider);
   border-radius:14px;
-  background:#fff;
   overflow:hidden;
   margin-top:12px;
 }
@@ -88,7 +86,7 @@ a:hover{text-decoration:underline}
   display:flex; justify-content:space-between; align-items:center;
   cursor:pointer;
 }
-.acc-trigger:focus{outline:2px solid #cfe6ff; outline-offset:2px}
+.acc-trigger:focus{outline:2px solid #3b82f6; outline-offset:2px}
 .acc-trigger .chev{transition:transform .18s ease}
 .acc-panel{
   max-height:0;
@@ -116,7 +114,7 @@ a:hover{text-decoration:underline}
 /* Buttons */
 button{
   padding:12px 16px; border:none; border-radius:8px;
-  background:var(--brand); color:#fff; font-weight:700; cursor:pointer;
+  background:var(--brand); color:#0b1220; font-weight:700; cursor:pointer;
   transition:background .2s ease;
 }
 button:hover{background:var(--brand-d)}
