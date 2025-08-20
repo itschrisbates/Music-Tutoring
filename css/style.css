@@ -43,10 +43,6 @@ a:hover{text-decoration:underline}
   height:70vh;
   background:url("../img/performing.webp") center center / cover no-repeat;
 }
-/* New onstage image uses the same sizing; just swap the background */
-.image-break.onstage{
-  background:url("../img/onstage.webp") center center / cover no-repeat;
-}
 
 /* Content sections */
 .section-content{
@@ -57,27 +53,29 @@ a:hover{text-decoration:underline}
 }
 .section-content p{color:var(--muted);font-size:1.05rem}
 
-/* Tighten Contact + Links spacing only */
-.tight-bottom{padding-bottom:20px}
-.tight-top{padding-top:10px}
-
-/* Social row */
-.social-row{
-  list-style:none; padding:0; margin:14px 0 0;
-  display:flex; justify-content:center; gap:18px; flex-wrap:wrap;
+/* Portrait + split layout */
+.split{
+  display:grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items:start;
+  gap:32px;
+  text-align:left;
 }
-.social-row li{font-size:1.05rem}
-
-/* Optional buttons (kept if needed later) */
-button{
-  padding:12px 16px; border:none; border-radius:8px;
-  background:var(--brand); color:#fff; font-weight:700; cursor:pointer;
-  transition:background .2s ease;
+.portrait{
+  margin:0;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--divider);
+  background:#fff;
 }
-button:hover{background:var(--brand-d)}
+.portrait img{
+  display:block;
+  width:100%;
+  height:auto;
+}
 
-/* Accordion styles */
-.accordion{margin-top:10px; text-align:left}
+/* Accordion */
+.accordion{margin-top:10px}
 .acc-item{
   border:1px solid var(--divider);
   border-radius:14px;
@@ -111,9 +109,33 @@ button:hover{background:var(--brand-d)}
   color:var(--muted);
 }
 
-/* Responsive tweak */
+/* Tight spacing */
+.tight-bottom{padding-bottom:20px}
+.tight-top{padding-top:10px}
+
+/* Social row */
+.social-row{
+  list-style:none; padding:0; margin:14px 0 0;
+  display:flex; justify-content:center; gap:18px; flex-wrap:wrap;
+}
+.social-row li{font-size:1.05rem}
+
+/* Buttons */
+button{
+  padding:12px 16px; border:none; border-radius:8px;
+  background:var(--brand); color:#fff; font-weight:700; cursor:pointer;
+  transition:background .2s ease;
+}
+button:hover{background:var(--brand-d)}
+
+/* Responsive */
+@media (max-width:960px){
+  .split{grid-template-columns:1fr; text-align:left}
+  .portrait{max-width:520px; margin:0 auto}
+}
 @media (max-width:720px){
   .section-content{padding:64px 18px}
   .hero{height:70vh}
   .image-break{height:50vh}
+  .portrait{max-width:100%}
 }
