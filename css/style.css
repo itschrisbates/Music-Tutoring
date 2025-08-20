@@ -1,127 +1,117 @@
-:root{
-  --text:#f3f4f6;        /* light text */
-  --muted:#d1d5db;       /* paragraph gray */
-  --brand:#60a5fa;       /* accent */
-  --brand-d:#3b82f6;     /* accent hover */
-  --content-w: 800px;
-  --section-bg:#111827;  /* page base (seen behind panels) */
-  --divider:#374151;     /* subtle borders */
+:root {
+  --bg: #0a0a0a;         /* closer to black */
+  --fg: #ffffff;         /* main text white */
+  --muted: #dddddd;      /* slightly softer white for paragraphs */
+  --accent: #3a6cf4;     /* link/interactive color */
+  --divider: #333333;    /* subtle divider if needed */
+  --content-w: 900px;    /* max width */
 }
 
-*{box-sizing:border-box}
-
-/* Subtle fixed photo background */
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  color:var(--text);
-  line-height:1.6;
-
-  /* fixed image stays put while scrolling */
-  background:url("../img/meandjono.webp") center center / cover no-repeat fixed;
-}
-/* dark wash over photo so content stays readable */
-body::before{
-  content:"";
-  position:fixed; inset:0;
-  background:rgba(0,0,0,0.72); /* tweak 0.6–0.85 to taste */
-  pointer-events:none;
-  z-index:-1;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Headings */
-h1,h2{line-height:1.2;margin:0 0 12px}
-h1{font-weight:800;font-size:clamp(28px,4vw,44px);color:var(--text)}
-h2{font-weight:800;font-size:clamp(22px,3vw,32px);color:var(--text)}
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg) url("img/meandjono.webp") no-repeat center center fixed;
+  background-size: cover;
+  color: var(--fg);
+  line-height: 1.6;
+}
 
 /* Links */
-a{color:var(--brand);text-decoration:none}
-a:hover{text-decoration:underline}
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
 /* Top banner */
 .top-banner {
-  background: transparent;   /* remove black box */
-  border: none;              /* remove divider line */
+  background: transparent;  /* let background show */
+  border: none;
   text-align: center;
-  padding: 80px 16px 40px;   /* a little more vertical spacing */
+  padding: 60px 16px 30px;  /* tightened */
+}
+.top-banner h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* readable on any bg */
 }
 
-/* Hero & image break */
-.hero{
-  height:90vh;
-  background:url("../img/hero.webp") center center / cover no-repeat;
+/* Sections */
+.section-content {
+  padding: 50px 20px;   /* reduced from 80px */
+  max-width: var(--content-w);
+  margin: 0 auto;
+  text-align: center;
 }
-.image-break{
-  height:70vh;
-  background:url("../img/performing.webp") center center / cover no-repeat;
+.section-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 18px;  /* reduced */
 }
-
-/* Content sections */
-.section-content{
-  padding:80px 20px;
-  max-width:var(--content-w);
-  margin:0 auto;
-  text-align:center;
-}
-.section-content p{color:var(--muted);font-size:1.05rem}
-
-/* Accordion (Teaching Info) */
-.accordion{margin-top:10px; text-align:left}
-.acc-item{
-  background:#1f2937;                 /* dark panel */
-  border:1px solid var(--divider);
-  border-radius:14px;
-  overflow:hidden;
-  margin-top:12px;
-}
-.acc-trigger{
-  width:100%;
-  text-align:left;
-  padding:16px 18px;
-  background:transparent;
-  border:0;
-  font-weight:700;
-  font-size:1.05rem;
-  color:var(--text);
-  display:flex; justify-content:space-between; align-items:center;
-  cursor:pointer;
-}
-.acc-trigger:focus{outline:2px solid #3b82f6; outline-offset:2px}
-.acc-trigger .chev{transition:transform .18s ease}
-.acc-panel{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height .22s ease;
-  border-top:1px solid var(--divider);
-  padding:0 18px;
-}
-.acc-panel p{
-  margin:14px 0 18px;
-  color:var(--muted);
+.section-content p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.2em; /* slightly less */
 }
 
-/* Tight spacing */
-.tight-bottom{padding-bottom:20px}
-.tight-top{padding-top:10px}
-
-/* Social row */
-.social-row{
-  list-style:none; padding:0; margin:14px 0 0;
-  display:flex; justify-content:center; gap:18px; flex-wrap:wrap;
+/* Accordion teaching info */
+.accordion {
+  margin-top: 25px;     /* tightened */
+  display: grid;
+  gap: 12px;            /* less space between boxes */
 }
-.social-row li{font-size:1.05rem}
-
-/* Buttons */
-button{
-  padding:12px 16px; border:none; border-radius:8px;
-  background:var(--brand); color:#0b1220; font-weight:700; cursor:pointer;
-  transition:background .2s ease;
+.accordion button {
+  background: #1a1a1a;
+  color: var(--fg);
+  padding: 14px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-button:hover{background:var(--brand-d)}
+.accordion button:hover {
+  background: #222;
+}
+.accordion button::after {
+  content: "›";
+  transition: transform 0.3s;
+}
+.accordion button.active::after {
+  transform: rotate(90deg);
+}
+.accordion .panel {
+  max-height: 0;
+  overflow: hidden;
+  background: #111;
+  border-radius: 0 0 8px 8px;
+  transition: max-height 0.4s ease;
+  padding: 0 18px;
+}
+.accordion .panel p {
+  padding: 14px 0;
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
 
-/* Responsive */
-@media (max-width:720px){
-  .section-content{padding:64px 18px}
-  .hero{height:70vh}
-  .image-break{height:50vh}
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-top: 1px solid var(--divider);
+  margin-top: 40px;
 }
