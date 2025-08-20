@@ -9,12 +9,24 @@
 }
 
 *{box-sizing:border-box}
+
+/* Subtle fixed photo background */
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
   color:var(--text);
-  background:var(--section-bg);
   line-height:1.6;
+
+  /* fixed, subtle background image */
+  background: url("../img/meandjono.webp") center center / cover no-repeat fixed;
+}
+/* light wash to keep content readable */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background:rgba(250,250,250,0.78); /* adjust 0.65–0.85 to taste */
+  pointer-events:none;
+  z-index:-1;
 }
 
 /* Headings */
@@ -28,10 +40,11 @@ a:hover{text-decoration:underline}
 
 /* Top banner */
 .top-banner{
-  background:var(--section-bg);
+  background:transparent;            /* show bg through */
   text-align:center;
   padding:40px 16px 30px;
   border-bottom:1px solid var(--divider);
+  backdrop-filter:saturate(110%) blur(0px);
 }
 
 /* Hero & image break */
@@ -50,32 +63,12 @@ a:hover{text-decoration:underline}
   max-width:var(--content-w);
   margin:0 auto;
   text-align:center;
+  backdrop-filter: blur(0px);        /* keeps text crisp if overlay is light */
 }
 .section-content p{color:var(--muted);font-size:1.05rem}
 
-/* Portrait + split layout */
-.split{
-  display:grid;
-  grid-template-columns: 1fr 1.2fr;
-  align-items:start;
-  gap:32px;
-  text-align:left;
-}
-.portrait{
-  margin:0;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid var(--divider);
-  background:#fff;
-}
-.portrait img{
-  display:block;
-  width:100%;
-  height:auto;
-}
-
 /* Accordion */
-.accordion{margin-top:10px}
+.accordion{margin-top:10px; text-align:left}
 .acc-item{
   border:1px solid var(--divider);
   border-radius:14px;
@@ -129,13 +122,8 @@ button{
 button:hover{background:var(--brand-d)}
 
 /* Responsive */
-@media (max-width:960px){
-  .split{grid-template-columns:1fr; text-align:left}
-  .portrait{max-width:520px; margin:0 auto}
-}
 @media (max-width:720px){
   .section-content{padding:64px 18px}
   .hero{height:70vh}
   .image-break{height:50vh}
-  .portrait{max-width:100%}
 }
