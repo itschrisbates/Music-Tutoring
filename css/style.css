@@ -1,16 +1,18 @@
 :root{
-  --text:#f3f4f6;        /* light text */
-  --muted:#d1d5db;       /* paragraph gray */
-  --brand:#60a5fa;       /* accent */
-  --brand-d:#3b82f6;     /* accent hover */
-  --content-w: 800px;
-  --section-bg:#111827;  /* page base (seen behind panels) */
-  --divider:#374151;     /* subtle borders */
+  --text:#f3f4f6;
+  --muted:#d1d5db;
+  --brand:#60a5fa;
+  --brand-d:#3b82f6;
+  --content-w:800px;
+  --section-bg:#111827;
+  --divider:#374151;
+
+  /* spacing scale */
+  --s1:8px; --s2:12px; --s3:16px; --s4:24px; --s5:32px;
 }
 
 *{box-sizing:border-box}
 
-/* Subtle fixed photo background */
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
@@ -27,7 +29,7 @@ body::before{
 }
 
 /* Headings */
-h1,h2{line-height:1.2;margin:0 0 10px}
+h1,h2{line-height:1.2;margin:0 0 var(--s2)}
 h1{font-weight:800;font-size:clamp(28px,4vw,44px);color:var(--text)}
 h2{font-weight:800;font-size:clamp(22px,3vw,32px);color:var(--text)}
 
@@ -36,46 +38,48 @@ a{color:var(--brand);text-decoration:none}
 a:hover{text-decoration:underline}
 
 /* Top banner */
-.top-banner {
-  background: transparent;
-  border: none;
-  text-align: center;
-  padding: 20px 16px 14px;
+.top-banner{
+  background:transparent;
+  border:none;
+  text-align:center;
+  padding: var(--s3) 16px var(--s2);
 }
-.top-banner h1{margin:0;line-height:1.1}
+.top-banner h1{margin:0; line-height:1.05}
 
 /* Hero & image break */
 .hero{
-  min-height: clamp(420px, 60vh, 680px);
+  min-height:48vh; max-height:560px; height:auto;
   background:url("../img/hero.webp") center center / cover no-repeat;
 }
 .image-break{
-  min-height: clamp(320px, 48vh, 560px);
+  min-height:32vh; max-height:420px; height:auto;
   background:url("../img/performing.webp") center center / cover no-repeat;
 }
 
-/* Content sections */
+/* Sections */
 .section-content{
-  padding: clamp(36px,6vh,56px) 20px;
+  padding: var(--s5) 20px;
   max-width:var(--content-w);
   margin:0 auto;
   text-align:center;
 }
+.section-content > * + *{ margin-top: var(--s3); }
+.section-content > h2 + *{ margin-top: var(--s2); }
 .section-content p{color:var(--muted);font-size:1.05rem}
 
 /* Accordion (Teaching Info) */
-.accordion{margin-top:8px;text-align:left}
+.accordion{margin-top:var(--s2); text-align:left}
 .acc-item{
   background:#1f2937;
   border:1px solid var(--divider);
   border-radius:14px;
   overflow:hidden;
-  margin-top:10px;
+  margin-top:var(--s2);
 }
 .acc-trigger{
   width:100%;
   text-align:left;
-  padding:14px 16px;
+  padding:12px 14px;
   background:transparent;
   border:0;
   font-weight:700;
@@ -84,24 +88,22 @@ a:hover{text-decoration:underline}
   display:flex;justify-content:space-between;align-items:center;
   cursor:pointer;
 }
-.acc-trigger:focus{outline:2px solid #3b82f6; outline-offset:2px}
+.acc-trigger:focus{outline:2px solid var(--brand-d); outline-offset:2px}
 .acc-trigger .chev{transition:transform .18s ease}
 .acc-panel{
   max-height:0;
   overflow:hidden;
   transition:max-height .22s ease;
   border-top:1px solid var(--divider);
-  padding:0 16px;
+  padding:0 14px;
 }
-.acc-panel p{
-  margin:12px 0 16px;
-  color:var(--muted);
-}
+.acc-panel p{margin:var(--s2) 0;color:var(--muted)}
 
-/* Social row */
+/* Contact + Socials */
+.contact,.socials{padding-block:var(--s4)}
 .social-row{
-  list-style:none; padding:0; margin:12px 0 0;
-  display:flex; justify-content:center; gap:16px; flex-wrap:wrap;
+  list-style:none; padding:0; margin:var(--s2) 0 0;
+  display:flex; justify-content:center; gap:var(--s2); flex-wrap:wrap;
 }
 .social-row li{font-size:1.05rem}
 
@@ -113,10 +115,15 @@ button{
 }
 button:hover{background:var(--brand-d)}
 
-/* Responsive */
+/* Readability: left-align long copy on wider screens */
+@media (min-width:900px){
+  .section-content p{ max-width:56ch; margin:0 auto; text-align:left; }
+}
+
+/* Mobile tweaks */
 @media (max-width:720px){
-  .section-content{padding:32px 16px}
-  .hero{min-height:52vh}
-  .image-break{min-height:44vh}
-  .top-banner{padding:14px 12px 10px}
+  .section-content{ padding: var(--s4) 16px; }
+  .hero{ min-height:44vh; }
+  .image-break{ min-height:28vh; }
+  .top-banner{ padding: var(--s2) 12px var(--s1); }
 }
