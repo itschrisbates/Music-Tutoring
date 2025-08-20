@@ -16,21 +16,18 @@ body{
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
   color:var(--text);
   line-height:1.6;
-
-  /* fixed image stays put while scrolling */
   background:url("../img/meandjono.webp") center center / cover no-repeat fixed;
 }
-/* dark wash over photo so content stays readable */
 body::before{
   content:"";
   position:fixed; inset:0;
-  background:rgba(0,0,0,0.72); /* tweak 0.6–0.85 to taste */
+  background:rgba(0,0,0,0.72);
   pointer-events:none;
   z-index:-1;
 }
 
 /* Headings */
-h1,h2{line-height:1.2;margin:0 0 12px}
+h1,h2{line-height:1.2;margin:0 0 10px}
 h1{font-weight:800;font-size:clamp(28px,4vw,44px);color:var(--text)}
 h2{font-weight:800;font-size:clamp(22px,3vw,32px);color:var(--text)}
 
@@ -40,25 +37,26 @@ a:hover{text-decoration:underline}
 
 /* Top banner */
 .top-banner {
-  background: transparent;   /* remove black box */
-  border: none;              /* remove divider line */
+  background: transparent;
+  border: none;
   text-align: center;
-  padding: 80px 16px 40px;   /* a little more vertical spacing */
+  padding: 20px 16px 14px;
 }
+.top-banner h1{margin:0;line-height:1.1}
 
 /* Hero & image break */
 .hero{
-  height:90vh;
+  min-height: clamp(420px, 60vh, 680px);
   background:url("../img/hero.webp") center center / cover no-repeat;
 }
 .image-break{
-  height:70vh;
+  min-height: clamp(320px, 48vh, 560px);
   background:url("../img/performing.webp") center center / cover no-repeat;
 }
 
 /* Content sections */
 .section-content{
-  padding:80px 20px;
+  padding: clamp(36px,6vh,56px) 20px;
   max-width:var(--content-w);
   margin:0 auto;
   text-align:center;
@@ -66,24 +64,24 @@ a:hover{text-decoration:underline}
 .section-content p{color:var(--muted);font-size:1.05rem}
 
 /* Accordion (Teaching Info) */
-.accordion{margin-top:10px; text-align:left}
+.accordion{margin-top:8px;text-align:left}
 .acc-item{
-  background:#1f2937;                 /* dark panel */
+  background:#1f2937;
   border:1px solid var(--divider);
   border-radius:14px;
   overflow:hidden;
-  margin-top:12px;
+  margin-top:10px;
 }
 .acc-trigger{
   width:100%;
   text-align:left;
-  padding:16px 18px;
+  padding:14px 16px;
   background:transparent;
   border:0;
   font-weight:700;
   font-size:1.05rem;
   color:var(--text);
-  display:flex; justify-content:space-between; align-items:center;
+  display:flex;justify-content:space-between;align-items:center;
   cursor:pointer;
 }
 .acc-trigger:focus{outline:2px solid #3b82f6; outline-offset:2px}
@@ -93,21 +91,17 @@ a:hover{text-decoration:underline}
   overflow:hidden;
   transition:max-height .22s ease;
   border-top:1px solid var(--divider);
-  padding:0 18px;
+  padding:0 16px;
 }
 .acc-panel p{
-  margin:14px 0 18px;
+  margin:12px 0 16px;
   color:var(--muted);
 }
 
-/* Tight spacing */
-.tight-bottom{padding-bottom:20px}
-.tight-top{padding-top:10px}
-
 /* Social row */
 .social-row{
-  list-style:none; padding:0; margin:14px 0 0;
-  display:flex; justify-content:center; gap:18px; flex-wrap:wrap;
+  list-style:none; padding:0; margin:12px 0 0;
+  display:flex; justify-content:center; gap:16px; flex-wrap:wrap;
 }
 .social-row li{font-size:1.05rem}
 
@@ -121,7 +115,8 @@ button:hover{background:var(--brand-d)}
 
 /* Responsive */
 @media (max-width:720px){
-  .section-content{padding:64px 18px}
-  .hero{height:70vh}
-  .image-break{height:50vh}
+  .section-content{padding:32px 16px}
+  .hero{min-height:52vh}
+  .image-break{min-height:44vh}
+  .top-banner{padding:14px 12px 10px}
 }
