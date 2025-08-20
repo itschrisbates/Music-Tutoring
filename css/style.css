@@ -34,7 +34,7 @@ a:hover{text-decoration:underline}
   border-bottom:1px solid var(--divider);
 }
 
-/* Hero & image breaks */
+/* Hero & image break */
 .hero{
   height:90vh;
   background:url("../img/hero.webp") center center / cover no-repeat;
@@ -42,10 +42,6 @@ a:hover{text-decoration:underline}
 .image-break{
   height:70vh;
   background:url("../img/performing.webp") center center / cover no-repeat;
-}
-/* New green full-bleed image after Bio */
-.image-break.green{
-  background:url("../img/green.webp") center center / cover no-repeat;
 }
 
 /* Content sections */
@@ -56,6 +52,66 @@ a:hover{text-decoration:underline}
   text-align:center;
 }
 .section-content p{color:var(--muted);font-size:1.05rem}
+
+/* Split layout for portrait + accordion */
+.split{
+  display:grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items:start;
+  gap:32px;
+  text-align:left;             /* override center */
+}
+.split-left, .split-right{width:100%}
+
+/* Portrait */
+.portrait{
+  margin:0;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--divider);
+  background:#fff;
+}
+.portrait img{
+  display:block;
+  width:100%;
+  height:auto;                 /* keep portrait ratio */
+}
+
+/* Accordion */
+.accordion{margin-top:8px}
+.acc-item{
+  border:1px solid var(--divider);
+  border-radius:14px;
+  background:#fff;
+  overflow:hidden;
+  margin-top:12px;
+}
+.acc-trigger{
+  width:100%;
+  text-align:left;
+  padding:16px 18px;
+  background:transparent;
+  border:0;
+  font-weight:700;
+  font-size:1.05rem;
+  color:var(--text);
+  display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer;
+}
+.acc-trigger:focus{outline:2px solid #cfe6ff; outline-offset:2px}
+.acc-trigger .chev{transition:transform .18s ease}
+
+.acc-panel{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .22s ease;
+  border-top:1px solid var(--divider);
+  padding:0 18px;             /* will be visually hidden until open */
+}
+.acc-panel p{
+  margin:14px 0 18px;
+  color:var(--muted);
+}
 
 /* Tighten Contact + Links spacing only */
 .tight-bottom{padding-bottom:20px}
@@ -68,7 +124,7 @@ a:hover{text-decoration:underline}
 }
 .social-row li{font-size:1.05rem}
 
-/* Optional buttons (kept if needed later) */
+/* Optional buttons */
 button{
   padding:12px 16px; border:none; border-radius:8px;
   background:var(--brand); color:#fff; font-weight:700; cursor:pointer;
@@ -76,39 +132,14 @@ button{
 }
 button:hover{background:var(--brand-d)}
 
-/* Teaching Info: interactive cards */
-.teaching-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  margin-top:24px;
-}
-.card{
-  background:#fff;
-  border:1px solid var(--divider);
-  border-radius:14px;
-  padding:20px;
-  text-align:left;
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  cursor:default;
-  outline:none;
-}
-.card h3{margin:0 0 10px;font-size:1.2rem}
-.card p{margin:0;color:var(--muted)}
-.card:hover,
-.card:focus{
-  transform:translateY(-6px);
-  box-shadow:0 10px 24px rgba(0,0,0,.12);
-  border-color:#d1d5db;
-}
-
-/* Responsive tweak */
+/* Responsive */
 @media (max-width:960px){
-  .teaching-grid{grid-template-columns:1fr 1fr}
-}
-@media (max-width:720px){
   .section-content{padding:64px 18px}
   .hero{height:70vh}
   .image-break{height:50vh}
-  .teaching-grid{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr; text-align:left}
+  .portrait{max-width:520px}
+}
+@media (max-width:720px){
+  .portrait{max-width:100%}
 }
