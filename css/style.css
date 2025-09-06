@@ -46,9 +46,9 @@ a:hover{text-decoration:underline}
 }
 .top-banner h1{margin:0; line-height:1.05}
 
-/* Hero & image break (restore tall look) */
+/* Hero & image break */
 .hero{
-  height:90vh;  /* fills most of screen again */
+  height:90vh;
   background:url("../img/hero.webp") center center / cover no-repeat;
   margin-block:var(--gap);
 }
@@ -73,6 +73,8 @@ a:hover{text-decoration:underline}
 .accordion{
   margin-top:calc(var(--gap)/3);
   text-align:left;
+  max-width:600px;       /* limit width */
+  margin-inline:auto;    /* center horizontally */
 }
 
 /* Accordion item containers */
@@ -119,7 +121,7 @@ a:hover{text-decoration:underline}
   color:var(--muted);
 }
 
-/* Accordion expanded state (chevron rotates + stronger background) */
+/* Accordion expanded state */
 .acc-trigger[aria-expanded="true"] {
   background:linear-gradient(145deg,#3b82f6,#2563eb);
   color:#fff;
