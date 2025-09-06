@@ -74,35 +74,72 @@ a:hover{text-decoration:underline}
   margin-top:calc(var(--gap)/3);
   text-align:left;
 }
-.acc-item{
+
+/* Accordion item containers */
+.acc-item {
   background:#1f2937;
   border:1px solid var(--divider);
-  border-radius:14px;
+  border-radius:10px;
   overflow:hidden;
   margin-top:calc(var(--gap)/3);
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
 }
-.acc-trigger{
+.acc-item:hover {
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* Accordion trigger button */
+.acc-trigger {
   width:100%;
   text-align:left;
-  padding:12px 14px;
-  background:transparent;
+  padding:14px 18px;
+  background:linear-gradient(145deg,#1f2937,#2a3545);
   border:0;
-  font-weight:700;
+  font-weight:600;
   font-size:1.05rem;
   color:var(--text);
-  display:flex;justify-content:space-between;align-items:center;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   cursor:pointer;
+  transition:background 0.2s ease, color 0.2s ease;
 }
-.acc-trigger:focus{outline:2px solid var(--brand-d); outline-offset:2px}
-.acc-trigger .chev{transition:transform .18s ease}
-.acc-panel{
+.acc-trigger:hover {
+  background:linear-gradient(145deg,#2a3545,#1f2937);
+  color:var(--brand);
+}
+.acc-trigger:focus {
+  outline:2px solid var(--brand-d);
+  outline-offset:2px;
+}
+.acc-trigger .chev {
+  transition:transform 0.18s ease;
+  font-size:1.2rem;
+  color:var(--muted);
+}
+
+/* Accordion expanded state (chevron rotates + stronger background) */
+.acc-trigger[aria-expanded="true"] {
+  background:linear-gradient(145deg,#3b82f6,#2563eb);
+  color:#fff;
+}
+.acc-trigger[aria-expanded="true"] .chev {
+  color:#fff;
+}
+
+/* Accordion panels */
+.acc-panel {
   max-height:0;
   overflow:hidden;
-  transition:max-height .22s ease;
+  transition:max-height 0.22s ease, padding 0.2s ease;
   border-top:1px solid var(--divider);
-  padding:0 14px;
+  padding:0 18px;
 }
-.acc-panel p{margin:calc(var(--gap)/3) 0;color:var(--muted)}
+.acc-panel p {
+  margin:calc(var(--gap)/3) 0;
+  color:var(--muted);
+}
 
 /* Contact + Socials */
 .contact,.socials{
