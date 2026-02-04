@@ -1,3 +1,5 @@
+body{ background: hotpink !important; }
+
 :root{
   --text:#111;
   --muted:#666;
