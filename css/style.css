@@ -300,3 +300,24 @@ body{
     gap: 18px;
   }
 }
+
+/* ================= BIO PAGE ================= */
+
+.bio-grid{
+  display:grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap:48px;
+  align-items:start;
+}
+
+.bio-grid img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+@media (max-width:900px){
+  .bio-grid{
+    grid-template-columns:1fr;
+  }
+}
