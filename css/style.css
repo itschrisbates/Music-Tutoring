@@ -164,14 +164,13 @@ body{
 .page{
   width:min(var(--max), 100%);
   margin:0 auto;
-  padding: 26px var(--gutter) 90px; /* extra white space at end */
+  padding: 26px var(--gutter) 90px;
 }
 
 .page-inner{
   width:min(var(--page-max), 100%);
   margin:0 auto;
-  border-top:1px solid var(--rule);
-  padding:44px 0; /* NO bottom border */
+  padding:44px 0; /* NO top or bottom border */
 }
 
 /* Big page title */
@@ -183,7 +182,7 @@ body{
   letter-spacing:-0.02em;
 }
 
-/* Intro block */
+/* Intro */
 .page .intro{
   margin:0 0 46px;
   font-size:1.06rem;
@@ -202,17 +201,14 @@ body{
   padding-top:0;
 }
 
-/* Last content block (Format) — tighter, no divider after */
 .lesson-block:last-of-type{
   padding-bottom:6px;
 }
 
-/* Section headings + text */
 .lesson-block h2{
   margin:0 0 8px;
   font-size:1.35rem;
   font-weight:800;
-  letter-spacing:-0.01em;
 }
 
 .lesson-block p{
@@ -221,7 +217,7 @@ body{
   max-width:80ch;
 }
 
-/* Ending CTA — open, no rules */
+/* Ending CTA */
 .page-cta{
   margin-top:34px;
 }
