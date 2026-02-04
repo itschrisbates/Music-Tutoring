@@ -244,3 +244,15 @@ body{
 .cta.dark:hover{
   background:rgba(0,0,0,0.06);
 }
+
+.page h1 {
+  font-family: 'Oswald', system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.page h2 {
+  font-family: 'Oswald', system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
