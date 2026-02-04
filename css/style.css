@@ -75,63 +75,38 @@ body{
    HERO
    ===================== */
 
-.hero{
-  width:min(var(--max),100%);
-  margin:24px auto 0;
-  height:78vh;
-  border:1px solid var(--line);
-  background:url("../img/hero.webp") center / cover no-repeat;
-  position:relative;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    180deg,
-    rgba(0,0,0,0.25),
-    rgba(0,0,0,0.4)
-  );
-}
-
-.hero-copy{
-  position:absolute;
-  bottom:42px;
-  left:0;
-  right:0;
-  padding:0 28px;
-  text-align:center;
-  color:#fff;
-  z-index:1;
-}
-
+/* Hero text more like the reference */
 .hero-copy h1{
-  margin:0 0 12px;
-  font-size:clamp(28px,4vw,44px);
+  text-transform:uppercase;
+  letter-spacing:0.04em;
   font-weight:800;
-  letter-spacing:-0.02em;
-  line-height:1.05;
+  font-size:clamp(28px,4vw,48px);
 }
 
+/* make the subtext cleaner + slightly smaller */
 .hero-copy p{
-  margin:0 0 20px;
-  font-size:1.05rem;
-  color:rgba(255,255,255,0.9);
+  max-width:60ch;
+  margin:0 auto 18px;
+  font-size:1rem;
+  color:rgba(255,255,255,0.88);
 }
 
-.cta{
-  display:inline-block;
-  padding:12px 18px;
-  background:#fff;
-  color:#111;
-  text-decoration:none;
-  font-weight:800;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,0.6);
+/* Boxy outlined button like the reference */
+.hero-actions{display:flex;justify-content:center}
+
+.cta-outline{
+  background:transparent;
+  color:#fff;
+  border:2px solid rgba(255,255,255,0.8);
+  border-radius:0;                 /* sharp corners */
+  padding:14px 28px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  font-weight:700;
 }
 
-.cta:hover{
+.cta-outline:hover{
+  background:rgba(255,255,255,0.12);
   transform:translateY(-1px);
 }
 
