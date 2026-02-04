@@ -159,7 +159,7 @@ body{
   }
 }
 
-/* ================= WHITE PAGES ================= */
+/* ================= WHITE PAGES (Lessons, Bio, Reviews) ================= */
 
 .page{
   width:min(var(--max), 100%);
@@ -172,10 +172,10 @@ body{
   margin:0 auto;
   border-top:1px solid var(--rule);
   border-bottom:1px solid var(--rule);
-  padding:44px 0;              /* more air at top/bottom */
+  padding:44px 0;
 }
 
-/* Big title */
+/* Big page title */
 .page h1{
   margin:0 0 26px;
   font-size: clamp(44px, 6vw, 78px);
@@ -184,23 +184,29 @@ body{
   letter-spacing:-0.02em;
 }
 
-/* Intro gets extra space */
+/* Intro block (extra breathing) */
 .page .intro{
-  margin:0 0 40px;             /* increased */
+  margin:0 0 46px;
   font-size:1.06rem;
   color:#222;
   max-width:75ch;
 }
 
-/* Section rhythm: tighter + calmer */
+/* Content sections */
 .lesson-block{
-  padding:18px 0;              /* reduced from before */
+  padding:18px 0;
   border-top:1px solid var(--rule);
 }
 
+/* First section sits clean under intro */
 .lesson-block:first-of-type{
   border-top:none;
   padding-top:0;
+}
+
+/* Last content section (Format) tighter at bottom */
+.lesson-block:last-of-type{
+  padding-bottom:8px;
 }
 
 .lesson-block h2{
@@ -216,11 +222,11 @@ body{
   max-width:80ch;
 }
 
-/* Final CTA feels like an ending */
+/* Ending CTA — open, no divider above */
 .page-cta{
-  margin-top:44px;             /* more separation */
-  padding-top:30px;
-  border-top:1px solid var(--rule);
+  margin-top:34px;
+  padding-top:0;
+  border-top:none;
 }
 
 .cta-text{
