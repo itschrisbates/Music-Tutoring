@@ -314,3 +314,39 @@ body{
     gap:18px;
   }
 }
+
+/* ================= REVIEWS PAGE ================= */
+
+.review-list{
+  display:flex;
+  flex-direction:column;
+  gap:34px;
+}
+
+.review{
+  padding-bottom:34px;
+  border-bottom:1px solid var(--rule);
+}
+
+.review:last-child{
+  border-bottom:none;
+  padding-bottom:0;
+}
+
+.review p{
+  margin:0 0 16px;
+  max-width:78ch;
+  line-height:1.8;
+  color:#222;
+  font-size:1.02rem;
+}
+
+.review-name{
+  display:block;
+  margin-top:8px;
+  font-family:'Oswald', system-ui, sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-size:0.92rem;
+  color:#111;
+}
